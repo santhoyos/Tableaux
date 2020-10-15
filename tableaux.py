@@ -117,11 +117,11 @@ def es_literal(f):
 	# Input: f, una fórmula como árbol
 	# Output: True/False
 	if f.label  in letrasProposicionales:
-		return true
+		return True
 	elif f.label == "¬":
 		return es_literal(f.right)
 	elif f.label in conectivos:
-		return false
+		return False
 	pass
 
 def no_literales(l):
