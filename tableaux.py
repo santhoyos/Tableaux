@@ -116,7 +116,12 @@ def es_literal(f):
 	# Esta función determina si el árbol f es un literal
 	# Input: f, una fórmula como árbol
 	# Output: True/False
-
+	if f.label  in letrasProposicionales:
+		return true
+	elif f.label == "¬":
+		return es_literal(f.right)
+	elif f.label in conectivos:
+		return false
 	pass
 
 def no_literales(l):
@@ -124,6 +129,11 @@ def no_literales(l):
 	# solo literales
 	# Input: l, una lista de fórmulas como árboles
 	# Output: None/f, tal que f no es literal
+	for f in l:
+		if es_literal(f)==True:
+			continue
+		else:
+			return None/f
 
 	pass
 
