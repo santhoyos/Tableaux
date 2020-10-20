@@ -119,7 +119,11 @@ def es_literal(f):
 	if f.right == None:
 		return True
 	elif f.label == "-":
-		return es_literal(f.right)
+            x = f.right
+            if x.label == "-": 
+                return False
+            else: 
+                return es_literal(f.right)
 	elif f.label in conectivos:
 		return False
 	pass
