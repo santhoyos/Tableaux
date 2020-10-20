@@ -145,7 +145,16 @@ def clasificacion(f):
 	# clasifica una fórmula como alfa o beta
 	# Input: f, una fórmula como árbol
 	# Output: string de la clasificación de la formula
-
+	if f.label == "O" or f.label == ">":
+            return "beta"
+	elif f.label == "Y":
+		return "alfa"
+    	elif f.label == "-":
+            x = f.right
+            if x.label == "-" or x.label == ">" or x.label == "O": 
+                return "alfa"
+            elif x.label == "Y":
+                return "beta"
 	pass
 
 def clasifica_y_extiende(f, h):
